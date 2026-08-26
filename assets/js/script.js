@@ -48,6 +48,7 @@ function closeMobileNav(){
 function setMode(btn){
   document.querySelectorAll('.toggle-row button').forEach(function(b){ b.classList.remove('active'); });
   btn.classList.add('active');
+  document.getElementById('nameField').hidden = (btn.textContent !== 'Named');
 }
 
 function genCode(){
@@ -62,6 +63,10 @@ function submitReport(){
   var btn = event.target;
   var cat = document.getElementById('cat').value;
   var desc = document.getElementById('desc').value.trim();
+  var incidentDate = document.getElementById('incidentDate').value;
+  var location = document.getElementById('location').value.trim();
+  var isNamed = !document.getElementById('nameField').hidden;
+  var displayName = isNamed ? document.getElementById('displayName').value.trim() : '';
 
   if(!cat || cat.indexOf('Select') === 0){
     flashButton(btn, 'Please choose a category', '#C9584F');
@@ -74,6 +79,9 @@ function submitReport(){
     code: code,
     category: cat,
     status: 'received',
+    location: location || '—',
+    incidentDate: incidentDate || '',
+    displayName: displayName || '',
     messages: [
       { from:'you', text: desc || '(No description provided)', time: now },
       { from:'team', text:"Thanks for reaching out. We've received your report and a trained reviewer will follow up here soon. You can check back anytime with your tracking code.", time: now }
@@ -82,6 +90,9 @@ function submitReport(){
 
   document.getElementById('desc').value = '';
   document.getElementById('cat').value = 'Select a category…';
+  document.getElementById('location').value = '';
+  document.getElementById('incidentDate').value = '';
+  document.getElementById('displayName').value = '';
 
   flashButton(btn, 'Submitted — check your Inbox', '#5D8C6B');
 
@@ -211,8 +222,10 @@ function openCase(code){
   document.getElementById('inboxThread').hidden = false;
 
   var c = INBOX_CASES[code];
-  document.getElementById('threadCode').textContent = c.code;
+ document.getElementById('threadCode').textContent = c.code;
   document.getElementById('threadCat').textContent = c.category;
+  document.getElementById('threadLocation').textContent = c.location || '';
+  document.getElementById('threadDate').textContent = c.incidentDate ? new Date(c.incidentDate).toLocaleString() : '';
   var statusEl = document.getElementById('threadStatus');
   statusEl.textContent = STATUS_LABEL[c.status];
   statusEl.className = 'thread-status status-pill ' + STATUS_CLASS[c.status];
