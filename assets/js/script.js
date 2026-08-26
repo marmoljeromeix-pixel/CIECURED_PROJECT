@@ -322,7 +322,7 @@ var QUIZ = [
     correct:2,
     explain:"You can report anonymously or by name — you're always in control, and anonymous reports can still be followed up through your private tracking code."
   },
-  {
+    {
     q:"If you or someone else is in immediate danger, what should you do first?",
     options:[
       "Submit a CIEcured report and wait for a reply",
@@ -332,6 +332,61 @@ var QUIZ = [
     ],
     correct:1,
     explain:"CIEcured isn't an emergency line. In immediate danger, calling 911 or your local emergency number comes first."
+  },
+  {
+    q:"If a class group chat becomes a place for harassment, what's a reasonable first step?",
+    options:[
+      "Reply and defend yourself publicly in the chat",
+      "Save screenshots and consider blocking or muting the sender",
+      "Leave the chat and never mention it to anyone",
+      "Nothing can be done about online harassment"
+    ],
+    correct:1,
+    explain:"Saving evidence and blocking or muting are valid, safe first steps. You're never obligated to engage with or respond to the person sending it."
+  },
+  {
+    q:"True or false: if someone says yes only because they felt pressured, that still counts as consent.",
+    options:[
+      "True — a yes is a yes no matter the circumstances",
+      "False — consent given under pressure isn't the same as consent given freely",
+      "True, as long as they didn't say no",
+      "It depends on who is asking"
+    ],
+    correct:1,
+    explain:"Real consent has to be freely given. Pressure, guilt-tripping, or persistence can make it difficult or impossible to give consent freely — and someone can change their mind at any point, even after saying yes."
+  },
+  {
+    q:"If you witness someone being harassed on campus, what's a safe way to help?",
+    options:[
+      "Confront the person responsible directly",
+      "Ignore it — it's not your problem",
+      "Check in with the person affected, or help them find support, if it's safe to do so",
+      "Record it and post it online"
+    ],
+    correct:2,
+    explain:"You don't have to confront anyone directly to help. A quiet check-in, or helping someone reach support or the right reporting channel, can make a real difference — safely."
+  },
+  {
+    q:"What does 'Audited Access' mean on CIEcured?",
+    options:[
+      "Anyone at the school can view any report",
+      "Reports are deleted after being reviewed",
+      "Only trained, verified staff can open a report, and every view is logged",
+      "Reports are only visible to the person who submitted them"
+    ],
+    correct:2,
+    explain:"Audited Access means access is restricted to trained, verified staff, and every time a report is opened, that action is logged — so there's accountability behind who sees what."
+  },
+  {
+    q:"What is a tracking code used for on CIEcured?",
+    options:[
+      "It's required to create an account",
+      "It's your way back into your report — to read replies or add details, with no account needed",
+      "It's only used by school administrators",
+      "It expires after 24 hours"
+    ],
+    correct:1,
+    explain:"The tracking code is what lets you check back on your report and read replies, without ever needing to create an account or share your identity."
   }
 ];
 
