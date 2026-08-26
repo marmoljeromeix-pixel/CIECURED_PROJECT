@@ -583,6 +583,11 @@
             <button onclick="setMode(this)">Named</button>
           </div>
 
+          <div class="field" id="nameField" hidden>
+            <label for="displayName">Name</label>
+            <input id="displayName" type="text" placeholder="What should we call you?">
+          </div>
+
           <div class="field">
             <label for="cat">Category</label>
             <select id="cat">
@@ -594,6 +599,16 @@
             </select>
           </div>
 
+		 <div class="field">
+            <label for="incidentDate">Date and time</label>
+            <input id="incidentDate" type="datetime-local">
+          </div>
+
+          <div class="field">
+            <label for="location">Place</label>
+            <input id="location" type="text" placeholder="e.g. Room 204, CR, hallway…">
+          </div>
+			
           <div class="field">
             <label for="desc">What's happening</label>
             <textarea id="desc" placeholder="Share as much or as little as you're comfortable with…"></textarea>
@@ -717,6 +732,8 @@
               <span class="thread-status" id="threadStatus">Under review</span>
             </div>
             <span class="thread-cat" id="threadCat">Category</span>
+			<span class="thread-cat" id="threadLocation"></span>
+            <span class="thread-cat" id="threadDate"></span>
           </div>
           <div class="thread-messages" id="threadMessages"></div>
           <form class="thread-reply" id="threadReplyForm" onsubmit="sendReply(event)">
