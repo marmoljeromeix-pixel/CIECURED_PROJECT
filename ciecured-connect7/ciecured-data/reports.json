@@ -1,0 +1,21 @@
+{
+    "CIE-KTWP-97": {
+        "category": "Harassment",
+        "status": "resolved",
+        "submitted_at": 1788188728,
+        "password_hash": "$2y$10$MiQ5lfgGKQxEMejRv7hS6uITsA\/8g.U8MYSCJj4gF8IIxZQbGfZfi",
+        "messages": [
+            {
+                "from": "student",
+                "text": "test",
+                "ts": 1788188728
+            },
+            {
+                "from": "staff",
+                "text": "test",
+                "ts": 1788188739
+            }
+        ],
+        "resolution_note": "test"
+    }
+}
