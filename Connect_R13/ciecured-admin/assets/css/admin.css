@@ -1,0 +1,215 @@
+/* =====================================================
+   CIEcured — Admin dashboard styles
+   Uses the same color/spacing variables as assets/css/styles.css.
+   Only new, admin-only patterns live here (top bar, stat cards,
+   toolbar, status control) — everything else (inbox list, thread,
+   status pills) is reused straight from the main stylesheet.
+===================================================== */
+
+body{ background:var(--white-warm); }
+
+/* ---------- top bar ---------- */
+.admin-header{
+  background:var(--purple-deep);
+  padding:16px 0;
+}
+.admin-header .wrap{
+  display:flex; align-items:center; justify-content:space-between; gap:20px;
+}
+.admin-brand{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--font-display); font-weight:700; font-size:17px;
+  color:var(--white); text-decoration:none;
+}
+.admin-brand .logo-mark{
+  width:34px; height:34px; border-radius:10px;
+  background:linear-gradient(145deg, var(--lavender-500), var(--lilac-300));
+  display:flex; align-items:center; justify-content:center;
+}
+.admin-brand .logo-mark svg{ width:18px; height:18px; }
+.admin-brand .logo-mark img{ width:100%; height:100%; border-radius:inherit; object-fit:cover; }
+.admin-brand small{
+  display:block; font-family:var(--font-body); font-weight:500;
+  font-size:11px; color:var(--lilac-300); letter-spacing:.03em;
+}
+.admin-header-actions{ display:flex; align-items:center; gap:14px; }
+.admin-header-actions a{
+  font-size:13px; font-weight:600; color:var(--lilac-300); text-decoration:none;
+}
+.admin-header-actions a:hover{ color:var(--white); }
+.admin-role-pill{
+  display:flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px; padding:6px 14px 6px 6px;
+}
+.admin-role-pill .avatar{
+  width:26px; height:26px; border-radius:50%;
+  background:var(--lavender-500); color:var(--white);
+  font-size:11px; font-weight:700;
+  display:flex; align-items:center; justify-content:center;
+}
+.admin-role-pill span{ font-size:12.5px; color:var(--white); font-weight:600; }
+
+/* ---------- page heading ---------- */
+.admin-main{ padding:40px 0 90px; }
+.admin-page-head{
+  display:flex; align-items:flex-end; justify-content:space-between;
+  gap:20px; margin-bottom:28px; flex-wrap:wrap;
+}
+.admin-page-head h1{
+  font-family:var(--font-display); font-size:26px; color:var(--purple-deep); margin-bottom:6px;
+}
+.admin-page-head p{ font-size:14px; color:var(--grey-soft); }
+
+/* ---------- stat cards ---------- */
+.stat-grid{
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:16px; margin-bottom:32px;
+}
+.stat-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:20px 22px; box-shadow:var(--shadow-soft);
+}
+.stat-card .stat-label{
+  font-size:12px; font-weight:600; color:var(--grey-soft);
+  text-transform:uppercase; letter-spacing:.04em; margin-bottom:10px;
+}
+.stat-card .stat-value{ font-family:var(--font-display); font-size:30px; color:var(--purple-deep); }
+.stat-card.accent{ border-color:var(--lilac-300); background:linear-gradient(180deg, var(--lilac-100), var(--white)); }
+.stat-card.accent .stat-value{ color:var(--lavender-600); }
+
+/* ---------- reports-by-category chart ---------- */
+.chart-card{
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
+  padding:22px 24px; box-shadow:var(--shadow-soft);
+  margin-bottom:32px;
+}
+.chart-card-head{ margin-bottom:18px; }
+.chart-card-head h3{
+  font-family:var(--font-display); font-size:16px; color:var(--purple-deep); margin-bottom:4px;
+}
+.chart-card-head p{ font-size:12.5px; color:var(--grey-soft); }
+
+.cat-chart{ display:flex; flex-direction:column; gap:14px; }
+.cat-bar-row{
+  display:grid;
+  grid-template-columns:190px 1fr 30px;
+  align-items:center;
+  gap:14px;
+}
+.cat-bar-label{
+  font-size:13px; font-weight:600; color:var(--purple-ink);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.cat-bar-track{
+  height:14px;
+  background:var(--white-warm);
+  border-radius:7px;
+  overflow:hidden;
+}
+.cat-bar-fill{
+  height:100%;
+  width:0%;
+  background:var(--lavender-500);
+  border-radius:0 6px 6px 0;
+  transition:width .4s ease, background .2s ease;
+}
+.cat-bar-row:hover .cat-bar-fill{ background:var(--lavender-600); }
+.cat-bar-value{
+  font-family:var(--font-display); font-weight:700; font-size:13.5px;
+  color:var(--purple-deep); text-align:right;
+}
+
+@media (max-width:640px){
+  .cat-bar-row{ grid-template-columns:1fr 26px; grid-template-rows:auto auto; row-gap:6px; }
+  .cat-bar-label{ grid-column:1 / -1; white-space:normal; }
+  .cat-bar-track{ grid-column:1; }
+  .cat-bar-value{ grid-column:2; }
+}
+
+/* ---------- toolbar above the report list ---------- */
+.admin-toolbar{
+  display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;
+}
+.admin-search{
+  flex:1; min-width:160px;
+  padding:10px 14px; border-radius:var(--radius-sm);
+  border:1.5px solid var(--line); background:var(--white);
+  font-family:inherit; font-size:13.5px; color:var(--purple-ink);
+}
+.admin-search:focus{ outline:none; border-color:var(--lavender-500); }
+
+/* ---------- report detail panel extras ---------- */
+.thread-header{ flex-wrap:wrap; gap:10px; }
+.status-select{
+  font-family:inherit; font-size:12.5px; font-weight:600; color:var(--purple-ink);
+  border:1.5px solid var(--line); border-radius:999px;
+  padding:6px 30px 6px 12px; background:var(--white-warm);
+  cursor:pointer;
+}
+.status-select:focus{ outline:none; border-color:var(--lavender-500); }
+
+.thread-meta-note{
+  font-size:12px; color:var(--grey-soft); padding:10px 24px; border-top:1px solid var(--line);
+}
+
+/* ---------- empty state reuse tweak ---------- */
+.admin-empty-sub{ font-size:13px; color:var(--grey-soft); margin-top:4px; }
+
+@media (max-width:900px){
+  .stat-grid{ grid-template-columns:repeat(2, 1fr); }
+}
+@media (max-width:560px){
+  .stat-grid{ grid-template-columns:1fr; }
+}
+
+/* ---------- unread indicator ---------- */
+.unread-dot{
+  display:inline-block;
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--lavender-500);
+  margin-right:7px;
+  vertical-align:middle;
+}
+
+/* ---------- send status text under the reply box ---------- */
+.reply-status{
+  display:block;
+  font-size:12.5px;
+  margin-top:6px;
+}
+.reply-status.sent{ color:#2E7D32; }
+.reply-status.error{ color:#8C332B; }
+
+/* ---------- urgent flag ---------- */
+.urgent-badge{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:#8C332B;
+  background:#FBEAE7;
+  border:1px solid #E3A79C;
+  border-radius:999px;
+  padding:2px 9px;
+  margin-right:8px;
+  vertical-align:middle;
+}
+
+.urgent-toggle{
+  font-size:12.5px;
+  padding:6px 14px;
+  white-space:nowrap;
+}
+.urgent-toggle.urgent-active{
+  background:#8C332B;
+  border-color:#8C332B;
+  color:var(--white);
+}
+
+/* ---------- fix filter row overflow now that there are 5 buttons ---------- */
+.inbox-filters{
+  flex-wrap:wrap;
+}
