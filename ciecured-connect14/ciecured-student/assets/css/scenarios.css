@@ -1,0 +1,203 @@
+/* ================= SCENARIO DIVIDER (standalone, between sections) ================= */
+.scenario-divider{
+  padding:56px 0;
+  background:var(--white-warm);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.scenario-card{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 32px;
+}
+
+.scenario-card-inner{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-soft);
+  cursor:pointer;
+  transition:border-color .25s ease, box-shadow .25s ease;
+  outline:none;
+}
+.scenario-card:hover .scenario-card-inner,
+.scenario-card:focus-within .scenario-card-inner,
+.scenario-card.is-open .scenario-card-inner{
+  border-color:var(--lilac-300);
+  box-shadow:var(--shadow-lilac);
+}
+.scenario-card-inner:focus-visible{outline:2.5px solid var(--lavender-500); outline-offset:3px;}
+
+.scenario-row{
+  display:grid;
+  grid-template-columns:150px 1fr 24px;
+  align-items:center;
+  gap:28px;
+  padding:24px 28px;
+  transition:grid-template-columns .35s ease;
+}
+.scenario-card:hover .scenario-row,
+.scenario-card:focus-within .scenario-row,
+.scenario-card.is-open .scenario-row{
+  grid-template-columns:220px 1fr 24px;
+}
+
+/* No placeholder frame — every card has a real photo now, so the
+   container is sized to the photo's own aspect ratio (see
+   .scenario-visual--square below for the one card whose art is
+   square) and just clips its corners. object-fit is `cover`, but
+   since the box ratio matches the image ratio there's nothing to
+   crop — it's only there as a safety net if that ever drifts. */
+.scenario-visual{
+  width:150px; aspect-ratio:1200/896;
+  border-radius:var(--radius-md);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  overflow:hidden;
+  transition:width .35s ease;
+}
+.scenario-card:hover .scenario-visual,
+.scenario-card:focus-within .scenario-visual,
+.scenario-card.is-open .scenario-visual{
+  width:220px;
+}
+.scenario-visual--square{aspect-ratio:1/1;}
+.scenario-visual svg{width:26px; height:26px; color:var(--lilac-300);}
+.scenario-visual img{width:100%; height:100%; object-fit:cover; border-radius:inherit;}
+
+
+
+.scenario-label{
+  display:flex; align-items:center; gap:7px;
+  font-size:11.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--lavender-600);
+  margin-bottom:8px;
+}
+.scenario-label .pip{width:6px; height:6px; border-radius:50%; background:var(--lavender-500); flex-shrink:0;}
+
+.scenario-title{
+  font-family:var(--font-display);
+  font-size:19px;
+  font-weight:600;
+  color:var(--purple-deep);
+  line-height:1.4;
+  margin-bottom:8px;
+  position:relative;
+  display:inline-block;
+}
+.scenario-title::after{
+  content:"";
+  position:absolute; left:0; bottom:-2px; height:1.5px; width:0;
+  background:linear-gradient(90deg, var(--lavender-500), var(--lilac-300));
+  transition:width .4s ease;
+}
+.scenario-card:hover .scenario-title::after,
+.scenario-card:focus-within .scenario-title::after,
+.scenario-card.is-open .scenario-title::after{width:64px;}
+
+.scenario-preview{
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--grey-body);
+  max-width:640px;
+}
+
+.scenario-indicator{
+  width:24px; height:24px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--lavender-500);
+  transition:transform .35s ease;
+}
+.scenario-card:hover .scenario-indicator,
+.scenario-card:focus-within .scenario-indicator,
+.scenario-card.is-open .scenario-indicator{transform:rotate(180deg);}
+.scenario-indicator svg{width:16px; height:16px;}
+
+.scenario-expand{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .45s cubic-bezier(.4,0,.2,1);
+}
+.scenario-card:hover .scenario-expand,
+.scenario-card:focus-within .scenario-expand,
+.scenario-card.is-open .scenario-expand{
+  grid-template-rows:1fr;
+}
+.scenario-expand-inner{overflow:hidden;}
+
+.scenario-expand-content{
+  padding:0 28px 28px 178px;
+}
+
+.scenario-meaning{
+  font-size:14.5px;
+  line-height:1.65;
+  color:var(--purple-ink);
+  border-top:1px solid var(--line);
+  padding-top:20px;
+  margin-bottom:20px;
+}
+
+.scenario-grid{
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:14px;
+}
+
+.scenario-chip{
+  background:var(--lilac-100);
+  border-radius:var(--radius-sm);
+  padding:14px 15px;
+}
+.scenario-chip .chip-head{
+  display:flex; align-items:center; gap:8px;
+  margin-bottom:6px;
+}
+.scenario-chip svg{width:16px; height:16px; color:var(--lavender-600); flex-shrink:0;}
+.scenario-chip strong{
+  font-size:12.5px; font-weight:700; color:var(--purple-deep);
+}
+.scenario-chip p{
+  font-size:12.5px; line-height:1.55; color:var(--grey-body); margin:0;
+}
+
+.scenario-expand-split{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:28px;
+  align-items:start;
+  padding:0 28px 28px 28px;
+}
+.scenario-visual-secondary{
+  width:220px; aspect-ratio:1200/896;
+  border-radius:var(--radius-md);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  overflow:hidden;
+}
+.scenario-visual-secondary.scenario-visual--square{aspect-ratio:1/1;}
+.scenario-visual-secondary svg{width:36px; height:36px; color:var(--lilac-300);}
+.scenario-visual-secondary img{width:100%; height:100%; object-fit:cover; border-radius:inherit;}
+
+@media (max-width:900px){
+  .scenario-grid{grid-template-columns:repeat(2, 1fr);}
+  .scenario-expand-content{padding-left:28px;}
+}
+
+@media (max-width:640px){
+  .scenario-row{display:flex; flex-direction:column; gap:14px; padding:20px 20px; position:relative;}
+  .scenario-visual,
+  .scenario-card.is-open .scenario-visual{width:100%;}
+  .scenario-indicator{position:absolute; top:20px; right:20px;}
+  .scenario-main{padding-right:28px;}
+  .scenario-title{font-size:16.5px;}
+  .scenario-expand-content{padding:0 20px 24px 20px;}
+  .scenario-expand-split{grid-template-columns:1fr; padding:0 20px 24px 20px; gap:16px;}
+  .scenario-visual-secondary{width:100%;}
+  .scenario-grid{grid-template-columns:1fr;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .scenario-expand, .scenario-indicator, .scenario-visual, .scenario-title::after{transition:none;}
+}
